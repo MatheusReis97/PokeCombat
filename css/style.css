@@ -1,0 +1,156 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+ body {
+    background-image: url(../img/wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  .container{
+    background-color: white;
+    color: black;
+    text-justify: auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10%;
+    border: 5px solid gold;
+
+
+  }
+  .titulo {
+    background-color: white;
+    color: blue;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .apresentação{
+    padding: 25px;
+  }
+
+
+  /* CARTÕES */
+  .cartoes{
+    background-color: rgba(150, 138, 138);
+    
+  }
+
+  #listaCartoes{
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+  
+
+  }
+
+  .Adicionar{
+    display: flex;
+    justify-content: center;
+   
+    
+    
+  }
+  .card{
+    background-color: rgb(255, 255, 255);
+    float: left;
+    margin: 5px;
+
+  }
+
+ 
+
+  .b-cartoes{
+    background-image: url(../img/cartoes.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .card-container {
+    padding: 4%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    background-color: rgba(250, 235, 215, 0.66) ;
+    text-align: center;
+  }
+
+
+  /* COMBATE */
+  .img-pokemon{
+    width: 50%;
+  }
+
+  .confronto{
+    display: flex;
+    justify-content: center;
+  
+  }
+  .confronto-img{
+    width: 50%;
+    margin-top: 30%;
+   
+  }
+
+  .batalha{
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-selecionado{
+    background-color: white;
+    border: 2px solid black;
+    margin-left: 4%;
+    margin-right: 2%;
+    display: inline-block;
+  }
+
+  .card-vilao{
+    background-color: white;
+    border: 2px solid black;
+    margin-left: 2%;
+    margin-right: 4%;
+    display: inline-block;
+      }
+
+
+  /* FORMS ADICIONAR */
+
+  form {
+    background-color: white;
+    border: 2px solid black;
+    padding: 3%;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -30%);
+    text-align: center;
+  }
+  
+  label{
+    display: flex;
+    margin-bottom: 1%;
+  }
+
+  button{
+    padding:0.5%;
+    margin: 0.5%;
+  
+  }
