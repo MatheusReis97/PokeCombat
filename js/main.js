@@ -316,6 +316,9 @@ console.log(AcaoOponente);
   }
 
   function Defender(event){
+
+    var idBotao = event.target.id;
+
     
     console.log("Defesa realizada !");
 
@@ -331,8 +334,12 @@ console.log(AcaoOponente);
             console.log("Você Defendeu " +DefesaPokemon);
             console.log("Inimigo deu dano de " + infoVilao[0]);
 
-            Hpjogador -= (DefesaPokemon - infoVilao[0]);
-           
+            if (DefesaPokemon < infoVilao[0]){
+          
+              Hpjogador -= (DefesaPokemon - infoVilao[0]);
+            
+          }
+          
             console.log(Hpjogador);
             console.log(HpVilao);
       }
@@ -341,18 +348,31 @@ console.log(AcaoOponente);
           console.log("Você Defendeu " +DefesaPokemon);
           console.log("Inimigo deu Ataque Especial de " + infoVilao[2]);
 
-          Hpjogador -= (DefesaPokemon - infoVilao[2]);
-         
+           if (DefesaPokemon < infoVilao[2]){
+          
+            Hpjogador -= (DefesaPokemon - infoVilao[2]);
+          
+          }
+
           console.log(Hpjogador);
           console.log(HpVilao);
         }
        }
     if (idBotao === "Defesa" && AcaoOponente == 2) {
+      
         console.log("Ambos defenderam");
-    }
+
+
+        console.log(Hpjogador);
+        console.log(HpVilao);
+
+      }
 }
 
   function Especial(event){
+
+    var idBotao = event.target.id;
+
     
     console.log("Ataque Especial realizado!");
     // ação adversario (variados)
@@ -363,22 +383,39 @@ console.log(AcaoOponente);
     console.log(AcaoOponente);
     if (idBotao === "AtaqueEspec" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
-            console.log("Você Utilizou Ataque Especial e causou dano");
-            console.log("Você tomou dano!");
+            console.log("Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon);
+            console.log("Inimigo deu dano de " + infoVilao[0]);
+
+            HpVilao -= AtqEspecialPokemon;
+            Hpjogador -= infoVilao[0];
+
+            console.log(Hpjogador);
+            console.log(HpVilao);
+
         }
         if (AcaoOponente == 3) {
-            console.log("Você Utilizou Ataque Especial e causou dano");
-            console.log("Você tomou Ataque Especial!");
+          console.log("Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon);
+          console.log("Inimigo Utilizou Ataque Especial de " + infoVilao[2]);
+
+
+          HpVilao -= AtqEspecialPokemon;
+          Hpjogador -= infoVilao[2];
+
+          console.log(Hpjogador);
+          console.log(HpVilao);
         }
     }
     if (idBotao === "AtaqueEspec" && AcaoOponente == 2) {
-        console.log("Você utilizou Ataque Especial e ele tentou Defender");
+
+      console.log("Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon);
+      console.log("Inimigo defendeu " +infoVilao[1]);
+
+      HpVilao -= (AtqEspecialPokemon - infoVilao[1]);
+
+      console.log(Hpjogador);
+      console.log(HpVilao);
     }
 }
-
-
-
-
 
 
 
