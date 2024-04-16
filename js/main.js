@@ -210,6 +210,7 @@ var teste = 0;
 var AtaquePokemon = 0;
 var DefesaPokemon = 0;
 var AtqEspecialPokemon = 0;
+var MensagemHistorico = '';
 
 
 if (vilaoAtual !== null && vilao[vilaoAtual]) {
@@ -415,6 +416,11 @@ console.log(AcaoOponente);
       console.log(Hpjogador);
       console.log(HpVilao);
     }
+}
+
+function HistoricoBatalha(event){
+
+
 }
 
 
