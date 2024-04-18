@@ -270,6 +270,9 @@ console.log("Batalha iniciada");
 function Atacar(event) {
   
   var idBotao = event.target.id;
+  var suaAcao = '';
+  var Oponente = '';
+ 
 
   console.log("Ataque realizado!");
 // ação adversario (variados)
@@ -282,9 +285,8 @@ console.log(AcaoOponente);
     if (idBotao === "Ataque" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
 
-            
-            console.log("Você deu dano de " + AtaquePokemon);
-            console.log("Inimigo deu dano de " + infoVilao[0]);
+            suaAcao = "Você deu dano de " + AtaquePokemon ;
+            Oponente = "Inimigo deu dano de " + infoVilao[0];
 
             HpVilao -= AtaquePokemon;
             Hpjogador -= infoVilao[0];
@@ -294,8 +296,8 @@ console.log(AcaoOponente);
 
         }
         if (AcaoOponente == 3) {
-            console.log("Você deu dano de " +AtaquePokemon);
-            console.log("Você tomou Ataque Especial de " + infoVilao[2]);
+            suaAcao ="Você deu dano de " +AtaquePokemon;
+            Oponente ="Você tomou Ataque Especial de " + infoVilao[2];
           
             HpVilao -= AtaquePokemon;
             Hpjogador -= infoVilao[2];
@@ -306,19 +308,25 @@ console.log(AcaoOponente);
     }
     if (idBotao === "Ataque" && AcaoOponente == 2) {
 
-          console.log("Você deu dano de " +AtaquePokemon);
-          console.log ("Seu adversario defendeu " + infoVilao[1])
+          suaAcao = "Você deu dano de " +AtaquePokemon;
+          Oponente = "Seu adversario defendeu " + infoVilao[1];
 
           HpVilao -= ( AtaquePokemon - infoVilao[1]);
 
           console.log(Hpjogador);
           console.log(HpVilao);
     }
+
+    
+    HistoricoBatalha(suaAcao , Oponente);
   }
 
   function Defender(event){
 
     var idBotao = event.target.id;
+    var suaAcao = '';
+    var Oponente = '';
+    
 
     
     console.log("Defesa realizada !");
@@ -332,8 +340,8 @@ console.log(AcaoOponente);
     
     if (idBotao === "Defesa" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
-            console.log("Você Defendeu " +DefesaPokemon);
-            console.log("Inimigo deu dano de " + infoVilao[0]);
+            suaAcao = "Você Defendeu " +DefesaPokemon;
+             Oponente = "Inimigo deu dano de " + infoVilao[0];
 
             if (DefesaPokemon < infoVilao[0]){
           
@@ -346,8 +354,8 @@ console.log(AcaoOponente);
       }
         if (AcaoOponente == 3) {
 
-          console.log("Você Defendeu " +DefesaPokemon);
-          console.log("Inimigo deu Ataque Especial de " + infoVilao[2]);
+          suaAcao = "Você Defendeu " +DefesaPokemon;
+          Oponente = "Inimigo deu Ataque Especial de " + infoVilao[2];
 
            if (DefesaPokemon < infoVilao[2]){
           
@@ -361,18 +369,23 @@ console.log(AcaoOponente);
        }
     if (idBotao === "Defesa" && AcaoOponente == 2) {
       
-        console.log("Ambos defenderam");
+        suaAcao = "Você Defendeu";
+        Oponente = "Inimigo Defendeu"
 
 
         console.log(Hpjogador);
         console.log(HpVilao);
 
       }
-}
+      HistoricoBatalha(suaAcao , Oponente);
+    }
 
   function Especial(event){
 
     var idBotao = event.target.id;
+    var suaAcao = '';
+    var Oponente = '';
+  
 
     
     console.log("Ataque Especial realizado!");
@@ -384,8 +397,8 @@ console.log(AcaoOponente);
     console.log(AcaoOponente);
     if (idBotao === "AtaqueEspec" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
-            console.log("Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon);
-            console.log("Inimigo deu dano de " + infoVilao[0]);
+            suaAcao = "Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon;
+            Oponente = "Inimigo deu dano de " + infoVilao[0];
 
             HpVilao -= AtqEspecialPokemon;
             Hpjogador -= infoVilao[0];
@@ -395,8 +408,8 @@ console.log(AcaoOponente);
 
         }
         if (AcaoOponente == 3) {
-          console.log("Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon);
-          console.log("Inimigo Utilizou Ataque Especial de " + infoVilao[2]);
+          suaAcao = "Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon;
+          Oponente = "Inimigo Utilizou Ataque Especial de " + infoVilao[2];
 
 
           HpVilao -= AtqEspecialPokemon;
@@ -408,19 +421,30 @@ console.log(AcaoOponente);
     }
     if (idBotao === "AtaqueEspec" && AcaoOponente == 2) {
 
-      console.log("Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon);
-      console.log("Inimigo defendeu " +infoVilao[1]);
+      suaAcao = "Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon;
+      Oponente = "Inimigo defendeu " +infoVilao[1];
 
       HpVilao -= (AtqEspecialPokemon - infoVilao[1]);
 
       console.log(Hpjogador);
       console.log(HpVilao);
     }
+
+    HistoricoBatalha(suaAcao , Oponente);
 }
 
-function HistoricoBatalha(event){
+function HistoricoBatalha(suaAcao, Oponente) {
+  var Historiabatalha = document.getElementById('historico');
+  
+  // Criar elemento de lista para a ação do jogador
+  var itemListaJogador = document.createElement('li');
+  itemListaJogador.textContent = `Sua Ação: ${suaAcao}`;
+  Historiabatalha.appendChild(itemListaJogador);
 
-
+  // Criar elemento de lista para a ação do oponente
+  var itemListaOponente = document.createElement('li');
+  itemListaOponente.textContent = `Ação do Oponente: ${Oponente}`;
+  Historiabatalha.appendChild(itemListaOponente);
 }
 
 
