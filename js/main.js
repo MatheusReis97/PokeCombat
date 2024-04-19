@@ -73,6 +73,33 @@ function adicionarCartao() {
 
     alert("Pokemon Adicionado!")
 }
+
+
+function VisualizarCartao(key){
+  {
+    dadosCartao = list[key];
+    var modalContent = document.getElementById("DadosPokemons");
+
+    const content = `
+    <p class="InfoCard"><strong>Nome:</strong> ${dadosCartao.pokemon}</p>
+    <p class="InfoCard"><strong>Tipo:</strong> ${dadosCartao.tipo}</p>
+    <p class="InfoCard"><strong>Categoria:</strong> ${dadosCartao.categoria}</p>
+    <p class="InfoCard"><strong>Principal Fraqueza :</strong> ${dadosCartao.PrincipalFraq}</p>
+    <p class="InfoCard"><strong>Vida:</strong> ${dadosCartao.Vida}</p>
+    <p class="InfoCard"><strong>Ataque:</strong> ${dadosCartao.Ataque}</p>
+    <p class="InfoCard"><strong>AtaquePrincipal:</strong> ${dadosCartao.AtkPrincipal}</p>
+    <p class="InfoCard"><strong>Defesa:</strong> ${dadosCartao.Defesa}</p>
+    <p class="InfoCard"><strong>Imagem</strong> <img class="img-pokemon"src="${dadosCartao.imagem}" alt="Imagem Pokemon"</p>
+
+ 
+  `;
+
+  modalContent.innerHTML = content;
+
+    $('#exampleModal').modal('show');
+    
+  }
+}
   
 function excluirCartao(key){
  
@@ -114,8 +141,7 @@ function EditarCartao(key){
 function SelecionarCartao(key) {
 
   var CardSelecionado = document.getElementById("CardSelecionado");
- 
-
+  
     // Verifique se o índice é válido
     if (key >= 0 && key < list.length) {
         // slice para criar uma cópia da lista e enviar para Selecionado
@@ -124,6 +150,7 @@ function SelecionarCartao(key) {
  
   //  apresentação do Selecionado
      var dadosSelecionado = Selecionado[0];
+     var vidaJogador = 0;
   const content = `
     <h4>Selecionado: Nº ${dadosSelecionado.num}</h4>
     <p>Nome: ${dadosSelecionado.pokemon}</p>
@@ -132,7 +159,7 @@ function SelecionarCartao(key) {
     <p>Atk : ${dadosSelecionado.Ataque}</p>
     <p>Atk Esp. : ${dadosSelecionado.AtkPrincipal}</p>
     <p>Def : ${dadosSelecionado.Defesa}</p>
-
+    <p>Vida: ${Hpjogador} / ${dadosSelecionado.Vida}</p>
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
@@ -141,35 +168,8 @@ function SelecionarCartao(key) {
   CardSelecionado.innerHTML = content;
 
   console.log("Card selecionado:", Selecionado);
-}
-
-
-function VisualizarCartao(key){
-  {
-    dadosCartao = list[key];
-    var modalContent = document.getElementById("DadosPokemons");
-
-    const content = `
-    <p class="InfoCard"><strong>Nome:</strong> ${dadosCartao.pokemon}</p>
-    <p class="InfoCard"><strong>Tipo:</strong> ${dadosCartao.tipo}</p>
-    <p class="InfoCard"><strong>Categoria:</strong> ${dadosCartao.categoria}</p>
-    <p class="InfoCard"><strong>Principal Fraqueza :</strong> ${dadosCartao.PrincipalFraq}</p>
-    <p class="InfoCard"><strong>Vida:</strong> ${dadosCartao.Vida}</p>
-    <p class="InfoCard"><strong>Ataque:</strong> ${dadosCartao.Ataque}</p>
-    <p class="InfoCard"><strong>AtaquePrincipal:</strong> ${dadosCartao.AtkPrincipal}</p>
-    <p class="InfoCard"><strong>Defesa:</strong> ${dadosCartao.Defesa}</p>
-    <p class="InfoCard"><strong>Imagem</strong> <img class="img-pokemon"src="${dadosCartao.imagem}" alt="Imagem Pokemon"</p>
-
  
-  `;
-
-  modalContent.innerHTML = content;
-
-    $('#exampleModal').modal('show');
-    
-  }
 }
-
 
 
 var vilaoAtual = 0;
@@ -186,6 +186,7 @@ function ApresentacaoVilao() {
     <p>Atk: ${dadosVilao.Ataque}</p>
     <p>Atk Esp. : ${dadosVilao.AtkPrincipal}</p>
     <p>Def: ${dadosVilao.Defesa}</p>
+    <p>Vida: ${HpVilao} / ${dadosVilao.Vida}</p>
 
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 500%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
@@ -204,13 +205,14 @@ document.getElementById("AtaqueEspec").addEventListener("click", Especial);
 document.getElementById("Defesa").addEventListener("click", Defender);
 
 
+
 var Hpjogador = 0;
 var HpVilao = 0;
 var teste = 0;
 var AtaquePokemon = 0;
 var DefesaPokemon = 0;
 var AtqEspecialPokemon = 0;
-var MensagemHistorico = '';
+
 
 
 if (vilaoAtual !== null && vilao[vilaoAtual]) {
@@ -231,16 +233,17 @@ if (Selecionado && Selecionado.length > 0) {
   DefesaPokemon = Selecionado[0].Defesa;
   AtqEspecialPokemon = Selecionado[0].AtkPrincipal;
   Hpjogador = Selecionado[0].Vida;
+  vidaJogador = Selecionado[0].Vida;
   
 } else {
   console.log("Nenhum card selecionado.");
 }
 
+
+
 function Batalha(event) {
 console.log("Batalha iniciada");
-  // console.log(HpVilao);
-  // console.log(Hpjogador);
-
+ 
   
   // Verificar se o card selecionado foi armazenado corretamente
   if (Selecionado && Selecionado.length > 0) {
@@ -265,6 +268,7 @@ console.log("Batalha iniciada");
 } else {
     console.log("Não há inimigo para batalhar");
 }
+SelecionarCartao()
 }
 
 function Atacar(event) {
@@ -293,7 +297,6 @@ console.log(AcaoOponente);
 
             console.log(Hpjogador);
             console.log(HpVilao);
-
         }
         if (AcaoOponente == 3) {
             suaAcao ="Você deu dano de " +AtaquePokemon;
@@ -317,7 +320,9 @@ console.log(AcaoOponente);
           console.log(HpVilao);
     }
 
-    
+    ContinuidadeBatalha (HpVilao , Hpjogador)
+    atualizarVidaOponente(HpVilao);
+    atualizarVidaJogador(Hpjogador);
     HistoricoBatalha(suaAcao , Oponente);
   }
 
@@ -347,6 +352,7 @@ console.log(AcaoOponente);
           
               Hpjogador -= (DefesaPokemon - infoVilao[0]);
             
+             
           }
           
             console.log(Hpjogador);
@@ -377,6 +383,10 @@ console.log(AcaoOponente);
         console.log(HpVilao);
 
       }
+
+      ContinuidadeBatalha (HpVilao , Hpjogador)
+      atualizarVidaOponente(HpVilao);
+      atualizarVidaJogador(Hpjogador);
       HistoricoBatalha(suaAcao , Oponente);
     }
 
@@ -429,9 +439,51 @@ console.log(AcaoOponente);
       console.log(Hpjogador);
       console.log(HpVilao);
     }
-
+    ContinuidadeBatalha (HpVilao , Hpjogador)
+    atualizarVidaOponente(HpVilao);
+    atualizarVidaJogador(Hpjogador);
     HistoricoBatalha(suaAcao , Oponente);
 }
+
+
+function atualizarVidaOponente(NovoValor){
+  HpVilao = NovoValor;
+
+  if(HpVilao <= 0){
+    HpVilao = 0
+  }
+  
+  ApresentacaoVilao();
+}
+
+function atualizarVidaJogador(NovoValor){
+  Hpjogador = NovoValor;
+
+    if(Hpjogador <= 0){
+      Hpjogador = 0
+    }
+
+  SelecionarCartao();
+}
+
+function ContinuidadeBatalha (HpVilao , Hpjogador){
+jogador = Hpjogador;
+adversario = HpVilao;
+botoes = document.getElementById("Botoes");
+
+ if (jogador <= 0){
+    console.log("Você foi derrotado!");
+    botoes.style.pointerEvents= "none";
+    botoes.style.opacity = "0.5";
+ }
+
+ if (adversario <=0){
+    console.log("Você Venceu ! Parabens !");
+     botoes.style.pointerEvents= "none";
+    botoes.style.opacity = "0.5";
+ }
+};
+
 
 function HistoricoBatalha(suaAcao, Oponente) {
   var Historiabatalha = document.getElementById('historico');
