@@ -29,7 +29,6 @@ function baseLista() {
     }
   }
   
-  // Função para salvar a lista no localStorage
   function salvaDadosLocal() {
     var jsondados = JSON.stringify(list);
     localStorage.setItem("list", jsondados);  
@@ -162,6 +161,7 @@ function SelecionarCartao(key) {
     <p>Vida: ${Hpjogador} / ${dadosSelecionado.Vida}</p>
     <div class="progress">
       <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+        
     </div>
   `;
 
@@ -173,8 +173,9 @@ function SelecionarCartao(key) {
 
 
 var vilaoAtual = 0;
+var HpVilao = 0;
 
-function ApresentacaoVilao() {
+function ApresentacaoVilao(){
   var CardVilao = document.getElementById("Cardvilao");
   var dadosVilao = vilao[vilaoAtual]; // Acesso ao vilão específico pelo índice
 
@@ -189,11 +190,14 @@ function ApresentacaoVilao() {
     <p>Vida: ${HpVilao} / ${dadosVilao.Vida}</p>
 
     <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 500%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar" role="progressbar" style="width: 500%;" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div> <br>
     </div>
+    <button id="ProximoAdv" style="display:none">PROXIMO ADVERSARIO</button>
   `;
 
   CardVilao.innerHTML = content;
+
+  proximaBatalha();
 }
 
 
@@ -206,8 +210,8 @@ document.getElementById("Defesa").addEventListener("click", Defender);
 
 
 
+
 var Hpjogador = 0;
-var HpVilao = 0;
 var teste = 0;
 var AtaquePokemon = 0;
 var DefesaPokemon = 0;
@@ -243,8 +247,6 @@ if (Selecionado && Selecionado.length > 0) {
 
 function Batalha(event) {
 console.log("Batalha iniciada");
- 
-  
   // Verificar se o card selecionado foi armazenado corretamente
   if (Selecionado && Selecionado.length > 0) {
       // Obtendo os atributos do card selecionado diretamente do objeto
@@ -268,7 +270,11 @@ console.log("Batalha iniciada");
 } else {
     console.log("Não há inimigo para batalhar");
 }
-SelecionarCartao()
+
+
+SelecionarCartao();
+proximaBatalha();
+ContinuidadeBatalha(HpVilao , Hpjogador);
 }
 
 function Atacar(event) {
@@ -294,9 +300,6 @@ console.log(AcaoOponente);
 
             HpVilao -= AtaquePokemon;
             Hpjogador -= infoVilao[0];
-
-            console.log(Hpjogador);
-            console.log(HpVilao);
         }
         if (AcaoOponente == 3) {
             suaAcao ="Você deu dano de " +AtaquePokemon;
@@ -304,9 +307,6 @@ console.log(AcaoOponente);
           
             HpVilao -= AtaquePokemon;
             Hpjogador -= infoVilao[2];
-
-            console.log(Hpjogador);
-            console.log(HpVilao);
           }
     }
     if (idBotao === "Ataque" && AcaoOponente == 2) {
@@ -315,11 +315,8 @@ console.log(AcaoOponente);
           Oponente = "Seu adversario defendeu " + infoVilao[1];
 
           HpVilao -= ( AtaquePokemon - infoVilao[1]);
-
-          console.log(Hpjogador);
-          console.log(HpVilao);
     }
-
+   
     ContinuidadeBatalha (HpVilao , Hpjogador)
     atualizarVidaOponente(HpVilao);
     atualizarVidaJogador(Hpjogador);
@@ -448,10 +445,11 @@ console.log(AcaoOponente);
 
 function atualizarVidaOponente(NovoValor){
   HpVilao = NovoValor;
-
+  
   if(HpVilao <= 0){
     HpVilao = 0
   }
+  
   
   ApresentacaoVilao();
 }
@@ -464,6 +462,23 @@ function atualizarVidaJogador(NovoValor){
     }
 
   SelecionarCartao();
+}
+
+function proximaBatalha(){
+  ProximoAdv = document.getElementById("ProximoAdv");
+  
+  if (HpVilao === 0){
+    ProximoAdv.style.display = "block";
+  }
+      ProximoAdv.addEventListener("click", function() {
+      vilaoAtual++;
+      console.log("testesteste3", vilaoAtual);
+      Batalha();
+      ApresentacaoVilao();
+      ContinuidadeBatalha();
+    })
+
+
 }
 
 function ContinuidadeBatalha (HpVilao , Hpjogador){
@@ -481,7 +496,12 @@ botoes = document.getElementById("Botoes");
     console.log("Você Venceu ! Parabens !");
      botoes.style.pointerEvents= "none";
     botoes.style.opacity = "0.5";
+ }else {
+   botoes.style.pointerEvents = "auto";
+   botoes.style.opacity = "1";
  }
+
+
 };
 
 
@@ -505,7 +525,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   ApresentacaoVilao();
 });
-
 
 recarregaCartoes(list);
 
