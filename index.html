@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -50,10 +50,7 @@
               <a class="nav-link" href="batalhas.html">BATALHAS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">MISSÃO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">API</a>
+              <a class="nav-link" href="api.html">API</a>
             </li>
           </ul>
         </div>
@@ -117,7 +114,7 @@
       <br />
 
       <div class="Adicionar">
-      
+        <button><a href="adicionar.html">Adicionar</a></button>
       </div>
       <br />
 
@@ -125,6 +122,26 @@
       
         <div id="listaCartoes"></div>
       
+     <!-- Modal Excluir -->
+     <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="TituloModalCentralizado">Excluir Cartão</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              
+            </button>
+          </div>
+          <div class="modal-body">
+           Tem certeza que deseja Excluir este cartão ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="excluirCartao('+key+')" id="excluirCartao">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <!-- Modal visualizar -->
       <div
@@ -160,7 +177,45 @@
           </div>
         </div>
       </div>
+    </div> 
+
+
+
+    <!-- Modal Editar -->
+    <div
+    class="modal fade"
+    id="ModalEditar"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Editar Cartão
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body" id="EditPokemons"></div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
     <br /><br />
 
     <!-- apresentação -->
@@ -184,7 +239,7 @@
     </div>
     <br />
 
-    <div class="combate">
+    <div class="combate" id="combate">
       <button  id="IniciarBatalha">Iniciar</button>
       <button  id="ResetarBatalha">Resetar</button>
       <button  id="DesistirBatalha">Desistir</button>
@@ -222,5 +277,6 @@
       <h3></h3>
     </footer>
     <script src="js/main.js"></script>
+    
   </body>
 </html>

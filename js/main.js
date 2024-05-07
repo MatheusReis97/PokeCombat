@@ -1,20 +1,23 @@
 
 // Cartões padrões
 var list = [
-    {"num": "3","pokemon": "Charizard","categoria":"Chama","tipo":"Fogo","PrincipalFraq":"Água","Vida":"400","Ataque":"50","Defesa":"50","AtkPrincipal":"70","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"},
-    {"num": "2","pokemon": "Nidoqueen","categoria":"Broca","tipo":"Veneno","PrincipalFraq":"Água","Vida":"600","Ataque":"60","Defesa":"60","AtkPrincipal":"50","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/031.png"},
-    {"num": "1","pokemon": "Poliwhirl","categoria":"Girino","tipo":"Água","PrincipalFraq":"Grama","Vida":"400","Ataque":"40","Defesa":"40","AtkPrincipal":"30","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/061.png"},
+    {"pokemon": "Cww","categoria":"Chama","tipo":"Fogo","PrincipalFraq":"Água","Vida":"100","Ataque":"10","Defesa":"20","AtkPrincipal":"10","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/071.png"},
+    {"pokemon": "Charizard","categoria":"Chama","tipo":"Fogo","PrincipalFraq":"Água","Vida":"400","Ataque":"50","Defesa":"50","AtkPrincipal":"70","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png"},
+    {"pokemon": "Nidoqueen","categoria":"Broca","tipo":"Veneno","PrincipalFraq":"Água","Vida":"600","Ataque":"60","Defesa":"60","AtkPrincipal":"50","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/031.png"},
+    {"pokemon": "Poliwhirl","categoria":"Girino","tipo":"Água","PrincipalFraq":"Grama","Vida":"200","Ataque":"10","Defesa":"10","AtkPrincipal":"10","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/061.png"},
 ];
 
 var vilao = [
-  {"nivel": "1","pokemon": "Rattata","categoria":"Rato","tipo":"Normal","PrincipalFraq":"Brigando","Vida":"200","Ataque":"40","Defesa":"30","AtkPrincipal":"20","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png"},
-  {"nivel": "2","pokemon": "Siri","categoria":"Carangueijo do rio","tipo":"Água","PrincipalFraq":"Grama","Vida":"200","Ataque":"70","Defesa":"60","AtkPrincipal":"20","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/098.png"},
-  {"nivel": "3","pokemon": "Alakazam","categoria":"Psi","tipo":"Psiquico","PrincipalFraq":"Fantasma","Vida":"400","Ataque":"30","Defesa":"30","AtkPrincipal":"80","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/065.png"},
-  {"nivel": "4","pokemon": "Gengar","categoria":"Sombra","tipo":"Fantasma","PrincipalFraq":"Fantasma","Vida":"400","Ataque":"40","Defesa":"40","AtkPrincipal":"80","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/094.png"},
-  {"nivel": "5","pokemon": "Dragonite","categoria":"Dragão","tipo":"Dragão","PrincipalFraq":"Fada","Vida":"600","Ataque":"80","Defesa":"60","AtkPrincipal":"60","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png"},
-  {"nivel": "6","pokemon": "Mew","categoria":"Novas espécies","tipo":"Psiquico","PrincipalFraq":"Fantasma","Vida":"600","Ataque":"60","Defesa":"60","AtkPrincipal":"60","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png"},
+  {"pokemon": "Rattata","categoria":"Rato","tipo":"Normal","PrincipalFraq":"Brigando","Vida":"200","Ataque":"40","Defesa":"30","AtkPrincipal":"20","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png"},
+  {"pokemon": "Siri","categoria":"Carangueijo do rio","tipo":"Água","PrincipalFraq":"Grama","Vida":"200","Ataque":"70","Defesa":"60","AtkPrincipal":"20","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/098.png"},
+  {"pokemon": "Alakazam","categoria":"Psi","tipo":"Psiquico","PrincipalFraq":"Fantasma","Vida":"400","Ataque":"30","Defesa":"30","AtkPrincipal":"80","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/065.png"},
+  {"pokemon": "Gengar","categoria":"Sombra","tipo":"Fantasma","PrincipalFraq":"Fantasma","Vida":"400","Ataque":"40","Defesa":"40","AtkPrincipal":"80","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/094.png"},
+  {"pokemon": "Dragonite","categoria":"Dragão","tipo":"Dragão","PrincipalFraq":"Fada","Vida":"600","Ataque":"80","Defesa":"60","AtkPrincipal":"60","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png"},
+  {"pokemon": "Mew","categoria":"Novas espécies","tipo":"Psiquico","PrincipalFraq":"Fantasma","Vida":"600","Ataque":"60","Defesa":"60","AtkPrincipal":"60","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png"},
 ];
 
+
+recarregaCartoes(list);
 var Selecionado={};
 
 
@@ -42,7 +45,7 @@ baseLista();
 function recarregaCartoes(itemCartao) {
     var inicio = '<br>';
     for (var key in itemCartao) {
-        inicio += '  <div class="card" style="width: 18rem;"><img src="'+itemCartao[key].imagem+'" class="card-img-top" alt="'+itemCartao[key].pokemon+'"><div class="card-bord"><h5 class="card-title">'+itemCartao[key].num+ '-' +itemCartao[key].pokemon+'</h5> <button type="button" class="btn btn-primary"  onclick="SelecionarCartao('+key+')">Selecionar</button><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="VisualizarCartao('+key+')">Visualizar</button><button type="button" class="btn btn-primary" onclick="EditarCartao('+key+')">Editar</button> <button type="button" class="btn btn-primary"onclick="excluirCartao('+key+')">Excluir</a></button></div></div>';
+        inicio += '  <div class="card" style="width: 18rem;"><img src="'+itemCartao[key].imagem+'" class="card-img-top" alt="'+itemCartao[key].pokemon+'"><div class="card-bord"><h5 class="card-title">'+itemCartao[key].pokemon+'</h5> <button type="button" class="btn btn-primary"  onclick="SelecionarCartao('+key+')">Selecionar</button><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="VisualizarCartao('+key+')">Visualizar</button><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEditar" onclick="EditarCartao('+key+')">Editar</button> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ExemploModalCentralizado"  onclick="excluirCartao('+key+')">Excluir</button></div></div>';
     }
     inicio += '<br>';
     document.getElementById("listaCartoes").innerHTML = inicio;
@@ -64,7 +67,7 @@ function adicionarCartao() {
 
    
 
-    list.unshift({"num":"4","pokemon":nome,"categoria":categoria,"tipo":tipo,"PrincipalFraq":prifraq,"Vida":vida,"Ataque":ataque,"Defesa":defesa,"AtkPrincipal":atqprincipal,"imagem":url});
+    list.unshift({"pokemon":nome,"categoria":categoria,"tipo":tipo,"PrincipalFraq":prifraq,"Vida":vida,"Ataque":ataque,"Defesa":defesa,"AtkPrincipal":atqprincipal,"imagem":url});
 
     salvaDadosLocal(list);
     
@@ -88,54 +91,101 @@ function VisualizarCartao(key){
     <p class="InfoCard"><strong>Ataque:</strong> ${dadosCartao.Ataque}</p>
     <p class="InfoCard"><strong>AtaquePrincipal:</strong> ${dadosCartao.AtkPrincipal}</p>
     <p class="InfoCard"><strong>Defesa:</strong> ${dadosCartao.Defesa}</p>
-    <p class="InfoCard"><strong>Imagem</strong> <img class="img-pokemon"src="${dadosCartao.imagem}" alt="Imagem Pokemon"</p>
+    <p class="InfoCard"><strong>Imagem:</strong> <img class="img-pokemon"src="${dadosCartao.imagem}" alt="Imagem Pokemon"</p>
 
  
   `;
 
   modalContent.innerHTML = content;
 
-    $('#exampleModal').modal('show');
+    // $('#exampleModal').modal('show');
     
   }
 }
+
+
+function EditarCartao(key) {
+  // Obter os dados do cartão a ser editado
+    dadosCartao = list[key];
+  var modalContent = document.getElementById("EditPokemons");
+  // Criar o conteúdo do modal com base nos dados do cartão
+  const content = `
+    
+  <form id="EdicaoCards">
+  <p><strong>Nome:</strong> <input type="text" id="editarNome" value="${dadosCartao.pokemon}"></p>
+  <p><strong>Tipo:</strong> <input type="text" id="editarTipo" value="${dadosCartao.tipo}"></p>
+  <p><strong>Categoria:</strong> <input type="text" id="editarCategoria" value="${dadosCartao.categoria}"></p>
+  <p><strong>Principal Fraqueza:</strong> <input type="text" id="editarPrincipalFraq" value="${dadosCartao.PrincipalFraq}"></p>
+  <p><strong>Vida:</strong> <input type="text" id="editarVida" value="${dadosCartao.Vida}"></p>
+  <p><strong>Ataque:</strong> <input type="text" id="editarAtaque" value="${dadosCartao.Ataque}"></p>
+  <p><strong>Ataque Principal:</strong> <input type="text" id="editarAtaquePrincipal" value="${dadosCartao.AtkPrincipal}"></p>
+  <p><strong>Defesa:</strong> <input type="text" id="editarDefesa" value="${dadosCartao.Defesa}"></p>
+  <p><strong>Imagem:</strong> <input type="text" id="editarImagem" value="${dadosCartao.imagem}"></p>
+</form>
+<button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="SalvarEdicao(${key})">Salvar</button>
+     
+  `;
   
-function excluirCartao(key){
- 
-    if(confirm("Você deseja realmente EXCLUIR o jogo?")){
-        if(key===list.length-1){
-            list.pop();
-        }else if(key === 0){
-            list.shift();
-        }else{
-            var listIni = list.slice(0,key);
-            var listFim = list.slice(key+1);
-            list=listIni.concat(listFim);
-        }
-        recarregaCartoes(list);
-        console.log(list);
-    }
-    }
-
-
-
-function EditarCartao(key){
-  dadosCartao = list[key];
-  var modalContent = document.getElementById("DadosPokemons");
-
-  document.getElementById("NomePoke").value=dadosCartao.pokemon;
-  document.getElementById("TipoPoke").value=dadosCartao.tipo;
-  document.getElementById("CategoriaPoke").value=dadosCartao.categoria;
-  document.getElementById("PrincipalFraqPoke").value=dadosCartao.PrincipalFraq;
-  document.getElementById("VidaPoke").value=dadosCartao.Vida;
-  document.getElementById("AtaquePoke").value=dadosCartao.Ataque;
-  document.getElementById("AtaquePrincipalPoke").value=dadosCartao.AtkPrincipal;
-  document.getElementById("ImagemPoke").value=dadosCartao.imagem;
 
   modalContent.innerHTML = content;
 
-    $('#exampleModal').modal('show');
-  }
+  // // Exibir o modal
+  // $('#ModalEditar').modal('show');
+}
+
+function SalvarEdicao(key) {
+  var form = document.getElementById("EdicaoCards");
+  var editCard = {
+    pokemon: form.elements["editarNome"].value,
+    tipo: form.elements["editarTipo"].value,
+    categoria: form.elements["editarCategoria"].value,
+    PrincipalFraq: form.elements["editarPrincipalFraq"].value,
+    Vida: form.elements["editarVida"].value,
+    Ataque: form.elements["editarAtaque"].value,
+    AtkPrincipal: form.elements["editarAtaquePrincipal"].value,
+    Defesa: form.elements["editarDefesa"].value,
+    imagem: form.elements["editarImagem"].value
+  };
+
+  // Atualizar os dados do cartão na lista
+  list[key] = editCard;
+
+  // Recarregar os cartões na interface
+  recarregaCartoes(list);
+
+  // // Fechar o modal
+  // $('#ModalEditar').modal('hide');
+}
+
+
+
+
+
+
+function excluirCartao(key) {
+  var Excluir = document.getElementById("excluirCartao");
+  Excluir.addEventListener("click", function() {
+      // Verifica se o botão foi clicado
+      if (Excluir) {
+          if (key === list.length - 1) {
+              list.pop();
+          } else if (key === 0) {
+              list.shift();
+          } else {
+              var listIni = list.slice(0, key);
+              var listFim = list.slice(key + 1);
+              list = listIni.concat(listFim);
+          }
+          recarregaCartoes(list);
+          console.log(list);
+      }
+    
+  });
+}
+
+
+
+
 
 function SelecionarCartao(key) {
 
@@ -149,9 +199,7 @@ function SelecionarCartao(key) {
  
   //  apresentação do Selecionado
      var dadosSelecionado = Selecionado[0];
-     var vidaJogador = 0;
   const content = `
-    <h4>Selecionado: Nº ${dadosSelecionado.num}</h4>
     <p>Nome: ${dadosSelecionado.pokemon}</p>
     <p class="InfoCard">Imagem: <img class="img-pokemon" src="${dadosSelecionado.imagem}" alt="Imagem Pokemon"</p>
     <p>Tipo: ${dadosSelecionado.tipo}</p>
@@ -168,8 +216,30 @@ function SelecionarCartao(key) {
   CardSelecionado.innerHTML = content;
 
   console.log("Card selecionado:", Selecionado);
- 
+
+  LiberarCombate();
+};
+
+
+LiberarCombate(); 
+
+  function LiberarCombate() {
+    var inicioBatalha = document.getElementById("combate");
+
+    // Verificar se o objeto Selecionado está vazio
+    if (Object.keys(Selecionado).length === 0) {
+        inicioBatalha.style.pointerEvents = "none";
+        inicioBatalha.style.opacity = "0.5";
+        inicioBatalha.style.color = "red";
+    } else {
+        inicioBatalha.style.pointerEvents = "auto";
+        inicioBatalha.style.opacity = "1";
+        inicioBatalha.style.color = ""; 
+    }
 }
+ 
+  
+
 
 
 var vilaoAtual = 0;
@@ -180,7 +250,6 @@ function ApresentacaoVilao(){
   var dadosVilao = vilao[vilaoAtual]; // Acesso ao vilão específico pelo índice
 
   const content = `
-    <h4>Nível: ${dadosVilao.nivel}</h4>
     <p>Nome: ${dadosVilao.pokemon}</p>
     <p class="InfoCard">Imagem: <img class="img-pokemon" src="${dadosVilao.imagem}" alt="Imagem Pokemon"</p>
     <p>Tipo: ${dadosVilao.tipo}</p>
@@ -207,6 +276,7 @@ document.getElementById("IniciarBatalha").addEventListener("click", Batalha);
 document.getElementById("Ataque").addEventListener("click", Atacar);
 document.getElementById("AtaqueEspec").addEventListener("click", Especial);
 document.getElementById("Defesa").addEventListener("click", Defender);
+
 
 
 
@@ -316,10 +386,12 @@ console.log(AcaoOponente);
 
           HpVilao -= ( AtaquePokemon - infoVilao[1]);
     }
+    
+    console.log(Hpjogador);
    
-    ContinuidadeBatalha (HpVilao , Hpjogador)
     atualizarVidaOponente(HpVilao);
     atualizarVidaJogador(Hpjogador);
+    ContinuidadeBatalha (HpVilao , Hpjogador)
     HistoricoBatalha(suaAcao , Oponente);
   }
 
@@ -329,9 +401,6 @@ console.log(AcaoOponente);
     var suaAcao = '';
     var Oponente = '';
     
-
-    
-    console.log("Defesa realizada !");
 
     // ação adversario (variados)
         var acao = [1,2,3];
@@ -381,10 +450,11 @@ console.log(AcaoOponente);
 
       }
 
-      ContinuidadeBatalha (HpVilao , Hpjogador)
-      atualizarVidaOponente(HpVilao);
-      atualizarVidaJogador(Hpjogador);
-      HistoricoBatalha(suaAcao , Oponente);
+      console.log(Hpjogador);
+   atualizarVidaOponente(HpVilao);
+    atualizarVidaJogador(Hpjogador);
+    ContinuidadeBatalha (HpVilao , Hpjogador)
+    HistoricoBatalha(suaAcao , Oponente);
     }
 
   function Especial(event){
@@ -393,9 +463,6 @@ console.log(AcaoOponente);
     var suaAcao = '';
     var Oponente = '';
   
-
-    
-    console.log("Ataque Especial realizado!");
     // ação adversario (variados)
         var acao = [1,2,3];
         var variacao = Math.floor(Math.random()* acao.length);
@@ -436,9 +503,11 @@ console.log(AcaoOponente);
       console.log(Hpjogador);
       console.log(HpVilao);
     }
-    ContinuidadeBatalha (HpVilao , Hpjogador)
+
+    console.log(Hpjogador);
     atualizarVidaOponente(HpVilao);
     atualizarVidaJogador(Hpjogador);
+    ContinuidadeBatalha (HpVilao , Hpjogador)
     HistoricoBatalha(suaAcao , Oponente);
 }
 
@@ -477,32 +546,29 @@ function proximaBatalha(){
       ApresentacaoVilao();
       ContinuidadeBatalha();
     })
-
-
 }
 
-function ContinuidadeBatalha (HpVilao , Hpjogador){
-jogador = Hpjogador;
-adversario = HpVilao;
-botoes = document.getElementById("Botoes");
+function ContinuidadeBatalha(HpVilao, Hpjogador) {
+ jogador = Hpjogador;
+ adversario = HpVilao;
+ botoes = document.getElementById("Botoes");
 
- if (jogador <= 0){
-    console.log("Você foi derrotado!");
-    botoes.style.pointerEvents= "none";
-    botoes.style.opacity = "0.5";
- }
+  if (jogador <= 0) {
+      botoes.style.pointerEvents = "none";
+      botoes.style.opacity = "0.5";
+      setTimeout(function() {
+          alert("Você foi derrotado!");
+      }, 100);
+  } else if (adversario <= 0) {
+      console.log("Você Venceu! Parabéns!");
+      botoes.style.pointerEvents = "none";
+      botoes.style.opacity = "0.5";
+  } else {
+      botoes.style.pointerEvents = "auto";
+      botoes.style.opacity = "1";
+  }
+}
 
- if (adversario <=0){
-    console.log("Você Venceu ! Parabens !");
-     botoes.style.pointerEvents= "none";
-    botoes.style.opacity = "0.5";
- }else {
-   botoes.style.pointerEvents = "auto";
-   botoes.style.opacity = "1";
- }
-
-
-};
 
 
 function HistoricoBatalha(suaAcao, Oponente) {
@@ -519,10 +585,25 @@ function HistoricoBatalha(suaAcao, Oponente) {
   Historiabatalha.appendChild(itemListaOponente);
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const pokemonSelecionado = JSON.parse(localStorage.getItem('pokemonSelecionado'));
+  if (pokemonSelecionado) {
+      if (pokemonSelecionado != 0) {
+          // Pokémon é um inimigo
+          vilao.push(pokemonSelecionado);
+      } else {
+          // Pokémon é um aliado
+          list.push(pokemonSelecionado);
+      }
+      // Limpa o item do localStorage após adicionar o Pokémon à lista
+      localStorage.removeItem('pokemonSelecionado');
+  }
+});
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
-
   ApresentacaoVilao();
 });
 
