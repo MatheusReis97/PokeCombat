@@ -41,13 +41,14 @@ fetch(url)
         console.error('Ocorreu um erro:', error);
     });
 
-// Função para lidar com o envio do formulário de pesquisa
+
 function AjustadorPesquisar(event) {
     event.preventDefault();
 
     const pokemonName = document.getElementById('pokemonInput').value.trim(); 
 
     if (pokemonName !== '') {
+        SugestaoProcura(pokemonName);
         searchPokemon(pokemonName);
     } else {
         alert('Por favor, insira o nome do Pokémon.'); 
@@ -66,10 +67,35 @@ function searchPokemon(pokemonName) {
             return response.json();
         })
         .then(pokemonData => {
+
+            PokemonRetornados(pokemonData);
+
+
+            return pokemonData; })
+        .then(pokemonData => {
+
+            SugestaoProcura(pokemonName, pokemonData.id);
+
+        })
+        .catch(error => {
+            alert(error.message);
+        })}
+
+
+function PokemonRetornados(pokemonData){
+    var pokemonImagem;
+            if (pokemonData.id <10) {
+                pokemonImagem = '00' + pokemonData.id;} 
+            else if(pokemonData.id <100){
+                pokemonImagem = '0'+ pokemonData.id;
+            }
+            else {
+                pokemonImagem = pokemonData.id;
+            }
             // Exibe os detalhes do Pokémon
             const pokemonEncontrado = `
             <div class="card" style="width: 18rem;">
-            <p>Imagem: <img  class="card-img-top" src="${pokemonData.sprites.front_default}" alt="${pokemonData.name}"></p>
+            <p>Imagem: <img  class="card-img-top" src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${pokemonImagem}.png" alt="${pokemonData.name}"></p>
             <div class="card-body">
             <h5 class="card-title">Nome: ${pokemonData.name}</h5>
             <p class="card-text">Tipo: ${pokemonData.types[0].type.name}</p>                            
@@ -80,11 +106,50 @@ function searchPokemon(pokemonName) {
             </div>
             </div>`;
             document.getElementById('pokemonEncontrado').innerHTML = pokemonEncontrado;
-        })
-        .catch(error => {
-            alert(error.message); // Exibe um alerta com a mensagem de erro
-        });
-}
+        }
 
-// Adiciona um ouvinte de evento de envio ao formulário de pesquisa
-document.getElementById('searchForm').addEventListener('submit', AjustadorPesquisar);
+        function SugestaoProcura(pokemonName) {
+            const url = `https://pokeapi.co/api/v2/pokemon/?limit=1000`;
+        
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar sugestões de Pokémon.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const pokemonList = data.results.map(pokemon => pokemon.name);
+                    const suggestions = pokemonList.filter(name => name.includes(pokemonName.toLowerCase()) && name !== pokemonName.toLowerCase());
+        
+                    if (suggestions.length === 0) {
+                        throw new Error('Nenhum Pokémon encontrado.');
+                    }
+        
+                    showSuggestions(suggestions);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    // Aqui você pode adicionar código para exibir uma mensagem amigável ao usuário, informando que nenhum Pokémon foi encontrado
+                });
+        }
+        
+        function showSuggestions(suggestions) {
+            const suggestionsList = document.getElementById('suggestionsList');
+            suggestionsList.innerHTML = '';
+        
+            suggestions.forEach(suggestion => {
+                const listItem = document.createElement('li');
+                listItem.textContent = suggestion;
+                listItem.addEventListener('click', () => {
+                    document.getElementById('pokemonInput').value = suggestion;
+                    suggestionsList.innerHTML = '';
+                });
+                suggestionsList.appendChild(listItem);
+            });
+
+            console.log("TESTE SHOW Suggestions");
+        }
+        
+        document.getElementById('searchForm').addEventListener('submit', AjustadorPesquisar);
+
