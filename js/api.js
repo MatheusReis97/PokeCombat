@@ -1,4 +1,4 @@
-const url = 'https://pokeapi.co/api/v2/pokemon?limit=4';
+const url = 'https://pokeapi.co/api/v2/pokemon?limit=20';
 
 
 var CardAPI = document.getElementById('CardAPI');
@@ -12,25 +12,32 @@ fetch(url)
                 .then(response => response.json())
                 .then(pokemonData => {
                     // Cria o conteúdo HTML com os detalhes do Pokémon
-                        if(pokemonData.id <100){
-                            pokemonImagem = '0'+ pokemonData.id;
-                        }if (pokemonData.id <10) {
-                            pokemonImagem = '00' + pokemonData.id;
-                        } else {
-                            pokemonImagem = pokemonData.id;
-                        }
+                    const pokemonImagem = pokemonData.id.toString().padStart(3, '0');
+                    const nomedoPokemon = pokemonData.name.toUpperCase();
                     const content = `
-                        <div class="card" style="width: 18rem;">
-                        <p>Imagem: <img  class="card-img-top" src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${pokemonImagem}.png" alt="${pokemonData.name}"></p>
-                        <div class="card-body">
-                        <h5 class="card-title">Nome: ${pokemonData.name}</h5>
+                    
+                    <input type="checkbox" id="switch" />
+            <label class="flip-container" for="switch" >
+                <div class="flipper" >
+                    <div class="front">
+                        <div class="card" style="width: 25rem; height: 30rem;">
+                        <img  class="card-img-top" src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${pokemonImagem}.png" alt="${pokemonData.name}"><br>     
+                        <h5 class="card-title">Nome: ${nomedoPokemon}</h5>
+                        
+                        </div>
+                    </div>
+                    <div class="back">
+                        <div class="card" style="width: 25rem; height: 30rem;">
+                        <h5 class="card-title">Nome: ${nomedoPokemon}</h5>
                         <p class="card-text">Tipo: ${pokemonData.types[0].type.name}</p>                            
                         <p class="card-text">Ataque: ${pokemonData.stats.find(stat => stat.stat.name === 'attack').base_stat}</p>
                         <p class="card-text">Ataque Especial: ${pokemonData.stats.find(stat => stat.stat.name === 'special-attack').base_stat}</p>
                         <p class="card-text">Defesa: ${pokemonData.stats.find(stat => stat.stat.name === 'defense').base_stat}</p>
-                        <p class="card-text">Vida: ${pokemonData.stats.find(stat => stat.stat.name === 'hp').base_stat * 10}</p> 
+                        <p class="card-text">Vida: ${pokemonData.stats.find(stat => stat.stat.name === 'hp').base_stat * 10}</p>     
                         </div>
-                        </div>`;
+                     </div>
+            </label>
+            </div>`;
                 
                     // Adiciona o conteúdo HTML ao elemento CardAPI
                     CardAPI.innerHTML += content;
