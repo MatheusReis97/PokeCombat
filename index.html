@@ -3,7 +3,7 @@
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Pokemon MR - Inicio</title>
+        <title>PokeCombat - Inicio</title>
     
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -57,45 +57,33 @@
           </div>
         </nav>
         <!--fim navbar-->
-        <br />
+        <br><br>
         <!-- apresentação -->
-        <div class="container">
+        <div class="container" style="margin-top: 3%;">
           <div class="titulo">
-            <h1>POKMATH</h1>
+            <h1 style="text-align: center;">PokeCombaT</h1>
           </div>
         </div>
         <br />
         <!-- fim apresentação -->
     
         <div class="container">
-          <div class="apresentação">
-            <h4>
-              Bem-vindo ao mundo de Pokémon! Prepare-se para embarcar em uma
-              aventura incrível, onde criaturas fantásticas e desafiadoras batalhas
-              esperam por você.
-            </h4>
-            <h4>
-              Prepare-se para embarcar em uma jornada incrível, repleta de aventuras
-              e desafios. No vasto continente de <strong>POKMATH</strong>, os
-              treinadores de Pokémon desvenda os segredos que habitam essa
-              misteriosa terra.
-            </h4>
+          <div class="apresentacao">
+            <p>Bem-vindo ao mundo de Pokémon! Prepare-se para embarcar em uma aventura incrível, onde criaturas fantásticas e desafiadoras batalhas esperam por você.</p>
+          <p>Site criado para desenvolver habilidades de desenvolvimento, HTML estrutura, CSS para estilização, e Javascript para manipulação e programação. Foi um projeto com grandes aprendizados, pois proporcionou a oportunidade de aplicar os conhecimentos teóricos em um ambiente prático e realista. Durante o processo de criação, enfrentei desafios que me incentivaram a buscar soluções criativas, aprimorando assim minha capacidade de resolução de problemas.</p>
+        <p> Prepare-se para embarcar em uma jornada incrível, desafiadora e feita com bastante cuidado. Espero que possa desfrutar com o jogo e extrair cada momento de diversão e aprendizado que ele me proporcionou.</p>
+            <h3 style="text-align: center; padding: 15px;"><strong>Explicando o jogo</strong></h3>
+            <p>Antes de mergulharmos no mundo dos Pokémon, vamos dar uma visão geral do que esperar nesta emocionante jornada. Você, jogador, desempenha o papel crucial de treinador de Pokémon. Durante as batalhas Pokémon, cabe a você dar as ordens decisivas. No entanto, antes de tudo, caso ainda não tenha montado sua equipe de Pokémon, não se preocupe. Você pode adicioná-los à sua lista através de nossa página API. Lá, você encontrará todas as informações necessárias para incluir Pokémon em sua equipe. Certifique-se de copiar a URL da imagem para colá-la em nosso formulário e garantir que seu Pokémon tenha um cartão completo.</p>
+            <p>Após buscar e adicionar o Pokémon desejado, é hora de selecioná-lo para que entre na batalha. E é aí que começa o verdadeiro desafio. Seja um treinador exemplar, mas lembre-se: as batalhas podem parecer fáceis à primeira vista, mas exigem habilidade e estratégia. Está preparado? Então, que comece a aventura! Um ótimo jogo!</p>
           </div>
         </div>
-        <br />
-        <div class="container">
-          <div class="apresentação">
-            <h3>Explicando o jogo</h3>
-            <p></p>
-          </div>
-        </div>
-        <br />
+        <br>
     
         <!-- apresentação -->
         <div class="cartoes" >
           <div class="container">
             <div class="titulo" id="cartoes">
-              <h1>CARTÕES</h1>
+              <h2>CARTÕES</h2>
             </div>
           </div>
           <br />
@@ -103,91 +91,51 @@
 
           <!-- Resumo da aplicação  -->
           <div class="card-container">
-            <div class="card-apresentação">
-              <h4>
-                Cenario onde você pode verificar seus cartões, adicionar, alterar e
-                excluir seus cartões.<br /><br />
-                Além de seleciona-los para as <strong>BATALHAS.</strong>
-              </h4>
+            <div class="caixa">
+            <div class="card-apresentacao">
+              <p>
+                Esta é a área reservada para seus cartões, você tem o controle total sobre sua coleção. Aqui, você pode manipulá-los de várias maneiras: adicionar novos cartões para expandir sua coleção, selecionar aqueles que deseja usar em batalhas, visualizar detalhes importantes, editar informações conforme necessário e até mesmo excluir cartões que já não atendem às suas necessidades. <br><br>
+                É importante lembrar que os dados necessários para adicionar novos Cartões estão disponíveis em nossa página API. Lá, você encontrará todas as informações necessárias para preencher corretamente os campos e garantir a adição adequada do cartão à sua coleção.
+
+              </p>
+            </div>
             </div>
           </div>
           <br />
     
           <div class="Adicionar">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAdicionar">
-              Adicionar Pokemon
+              Adicionar Pokémon
             </button>
             <div class="modal fade" id="modalAdicionar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <div class="container" style="background-color: white;">
+                    <div class="container " style="background-color: white;">
                       <hr>
                       <div>
-                      <h3>Novo Pokemon</h3> 
+                      <h3>Novo Pokémon</h3> 
                      </div>
                       <hr>
-                      <label for="nome">Nome Pokemon:</label>
-                      <input type="text" id="nome" pattern="[A-Za-z]+" >
-                      <label for="categoria">Categoria:</label>
-                      <input type="text" id="categoria" pattern="[A-Za-z]+" >
+                      <div class="form-adicionar">
+                      <label for="nome">Nome Pokémon:</label>
+                      <input type="text" id="nome" required pattern="[A-Za-z]+">       
                       <label for="tipo">Tipo:</label>
-                      <input type="text" id="tipo" pattern="[A-Za-z]+"  >
-                      <label for="fraqueza">Principal fraqueza: </label>
-                      <input type="text" id="fraqueza" pattern="[A-Za-z]+" >
+                      <input type="text" id="tipo" required pattern="[A-Za-z]+">                  
                       <label for="Vida">Vida: </label>
-                      <select name="vida" id="vida">
-                        <option value="">-</option>
-                        <option value="300">300</option>
-                        <option value="400">400</option>
-                        <option value="500">500</option>
-                        <option value="600">600</option>
-                        <option value="700">700</option>
-                        <option value="800">800</option>
-                        <option value="900">900</option>
-                        <option value="1000">1000</option>
-                      </select>
+                      <input type="number" name="vida" id="vida" required pattern="number">
                       <label for="Ataque">Ataque: </label>
-                      <select name="ataque" id="ataque">
-                        <option value="">-</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="60">60</option>
-                        <option value="70">70</option>
-                        <option value="80">80</option>
-                        <option value="90">90</option>
-                        <option value="100">100</option>
-                      </select>
+                      <input type="number" name="ataque" id="ataque" required pattern="number">
                       <label for="Defesa">Defesa: </label>
-                      <select name="defesa" id="defesa">
-                        <option value="">-</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="60">60</option>
-                        <option value="70">70</option>
-                        <option value="80">80</option>
-                        <option value="90">90</option>
-                        <option value="100">100</option>
-                      </select>
+                      <input type="number" name="defesa" id="defesa" required pattern="number">
                       <label for="AtqPrincipal">Ataque Principal: </label>
-                      <select name="atqprincipal" id="atqprincipal">
-                        <option value="">-</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="60">60</option>
-                        <option value="70">70</option>
-                        <option value="80">80</option>
-                        <option value="90">90</option>
-                        <option value="100">100</option>
-                      </select>
+                      <input type="number" name="atqprincipal" id="atqprincipal" required pattern="number">
                       <label for="imagem">URL da imagem: </label>
-                      <input type="text" placeholder="Buscar no Pokedex" id="url">
+                      <input type="text" placeholder="Buscar na pag. API" id="url" required pattern="[A-Za-z]+">
+                    </div>
                       <hr>
                       <button onclick="adicionarCartao()"  type="submit" class="btn btn-primary" data-bs-dismiss="modal">Enviar</button>
-                      <button onclick="limpezaAdicionar()"  type="submit" class="btn btn-primary">Limpar</button>
+                      <button onclick="limpezaAdicionar()"  type="submit" class="btn btn-warning">Limpar</button>
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                     </div>
                   </div>
@@ -200,11 +148,14 @@
             
           <!-- Cartões -->
             <div id="alerta" style="display: none;">
-                <div class="alert alert-danger" role="alert">
-                   Você está em combate, não poderá enquanto não desistir! 
+                <div class="alert alert-danger" role="alert" style="text-align: center;">
+                   Você está em combate, não terá acesso enquanto não desistir! 
                   </div>
             </div>
+
+         <div class="controlador-lista">   
             <div id="listaCartoes"></div>
+        </div>
           
          <!-- Modal Excluir -->
          <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -241,6 +192,7 @@
                   <h5 class="modal-title" id="exampleModalLabel">
                     Informação Cartão
                   </h5>
+                  
                   <button
                     type="button"
                     class="btn-close"
@@ -270,17 +222,15 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content ">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+              <h5 class="modal-title" id="exampleModalLabel" style="text-align: center;">
                 Editar Cartão
               </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="EditPokemons"></div>
+            
+            <div class="modal-body" id="EditPokemons">
+            </div>
             <div class="modal-footer">
             </div>
           </div>
@@ -295,36 +245,38 @@
         <!-- apresentação -->
         <div class="container">
           <div class="titulo" id="batalha">
-            <h1>BATALHAS</h1>
+            <h2>BATALHAS</h2>
           </div>
         </div>
-        <br />
+        
         <!-- fim apresentação -->
     
         <!-- Resumo da aplicação  -->
         <div class="card-container">
-          <div class="card-apresentação">
-            <h4>
-              Aqui onde são realizados as batalhas, você deve selecionar qual
-              pokemon deseja utilizar para batalha. Lembre-se de buscar as
-              Informação no site da Pokedex, ou na nossa área de API.
-            </h4>
+          <div class="caixa">
+          <div class="card-apresentacao" style="text-align: center !important;">
+            <p>
+            Bem-vindo à Arena de Combate! Aqui, você enfrentará uma série de desafiantes adversários, provando ser um treinador de Pokémon digno de reconhecimento.</p><br>
+            <p>Prepare-se para o embate! Selecione cuidadosamente um dos cartões disponíveis. Quando estiver pronto, é hora de iniciar o combate e mostrar toda a sua habilidade como treinador de Pokémon.</p>
           </div>
         </div>
-        <br />
+        </div>  
+       
     
         <div class="combate" id="combate">
-          <button  id="IniciarBatalha" >Iniciar</button>
-          <button  id="ResetarBatalha">Resetar</button>
-          <button  id="DesistirBatalha" onclick="Desistir()">Desistir</button>
-        </div>
+            <button type="button" class="btn btn-success" id="IniciarBatalha">Iniciar</button>
+          <button type="button" class="btn btn-warning" id="DesistirBatalha" onclick="Desistir()">Desistir</button>
+        </div> <br>
+
+
+        
         <div class="batalha">
           <div class="card-selecionado">
             <div class="CardSelecionado" id="CardSelecionado"></div>
-            <div class="container" id="Botoes">
-            <button id="Ataque">Ataque</button>
-            <button  id="AtaqueEspec">Ataque Especial</button>
-            <button id="Defesa">Defesa</button>
+            <div class="caixa-botao" id="Botoes">
+            <button type="button" class="btn ataque" id="Ataque">Ataque</button>
+            <button type="button" class="btn ataqueEsp"  id="AtaqueEspec">Ataque Especial</button>
+            <button type="button" class="btn defesa" id="Defesa">Defesa</button>
           </div>
           </div>
           
@@ -340,17 +292,43 @@
           </div>
         </div><br>
     
-        <div>
-          <h4 id="HistoricoBatalha">Historico Batalha</h4>
+        <div class="container">
+          <h2><strong>Histórico Batalha</strong></h2>
+        </div>
           <div id="HistoriaBatalha">
           <ul class="historico" id="historico"></ul>
         </div>
         </div>
     
-    
-    
+    <!-- MODAL PARA ERRO  -->
+<!-- Button trigger modal -->
+<div >
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAlerta" style="display: none;">
+ 
+</button>
+
+    <div class="modal" id="ModalAlerta" tabindex="-1">
+      <div class="modal-dialog" id="tamanhomodal">
+        <div class="modal-content">
+          <div class="modal-header" id="div-titulo">
+            <h5 class="modal-title" id="titulo-modal"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="body-modal">
+            <p id="texto-modal" style="font-style: italic;"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>    
         <footer>
-          <h3></h3>
+            <a class="img-footer" href="https://github.com/MatheusReis97"><img src="img/placa-do-github.png" alt="Github" title="Github"></a>
+            <a class="img-footer" href="https://github.com/MatheusReis97/Repositorio-pokeMath"><img src="img/documento.png" alt="Github" title="script"></a>
+            <a class="img-footer" href="https://www.linkedin.com/in/matheus-reis-santos/"><img src="img/linkedin (1).png" alt="Linkedin" title="Linkedin"></a>
+
         </footer>
         <script src="js/main.js"></script>
         

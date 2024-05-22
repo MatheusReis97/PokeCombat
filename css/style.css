@@ -13,6 +13,35 @@ html, body {
     margin: 0;
     padding: 0;
   }
+
+  footer{
+    text-align: center;
+    width: 100%;
+    background-color: #055160;
+    margin-top: 5%;
+    height: 50px;
+    bottom: 0;
+  }
+
+  .img-footer img{
+    margin: 5px ;
+    height: 75%;
+    padding-top: 10px;
+  }
+
+  h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+    letter-spacing: 3px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+  }
   
 
   .container{
@@ -20,8 +49,8 @@ html, body {
     color: black;
     text-justify: auto;
     text-align: center;
-    padding: 10px;
-    border-radius: 10%;
+    padding: 2%;
+    border-radius: 3%;
     border: 5px solid gold;
 
 
@@ -32,15 +61,37 @@ html, body {
     text-align: center;
     padding: 5px;
   }
+
+  .caixa{
+    background-color: rgba(255, 255, 255);
+    margin: 0 50 0 50;
+    text-align: center;
+    text-justify: auto;
+    padding: 1%;
+  }
+
+  .card-apresentacao{
+    text-align: justify;
+    font-size: 18px;
+    line-height: 25px;
+    margin: 0 50px 10px 50px;
+    padding: 1%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+  }
   
-  .apresentação{
-    padding: 25px;
+  .apresentacao{
+    margin: 4%;
+    padding: 2%;
+    text-align: justify;
+    font-family:Cambria;
+    font-size: 24px;
   }
 
 
   /* CARTÕES */
   .cartoes{
-    background-color: rgba(150, 138, 138);
+    background-color: rgba(255, 232, 232, 0.603);
     
   }
 
@@ -50,7 +101,6 @@ html, body {
     flex-wrap: wrap;
     align-content: center;
     width: 100%;
-    height: 100%;
     flex-direction: row;
     justify-content: center;
   
@@ -88,19 +138,75 @@ html, body {
     padding: 4%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
-    background-color: rgba(250, 235, 215, 0.66) ;
     text-align: center;
   }
 
+  #EdicaoCards input{
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 1px 1px 2px #333333;
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #cccccc;
+    border: 1px solid #000000;
+
+  }
 
   /* COMBATE */
+
+  .caixa-botao{
+    background-color: #41464b3d;
+    padding: 2%;
+    justify-content: center;
+    display: flex;
+    margin-top: 2%;
+    flex-wrap: wrap;
+  }
+
+  .caixa-botao button {
+    padding: 2%;
+    margin: 2%;
+    font-size: 100%;
+    
+  }
+
+  .ataque{
+    background-color: #d32b2b;
+    color: white;
+  }
+
+  .ataqueEsp{
+    background-color: rebeccapurple;
+    color: white;
+  }
+
+  .defesa{
+    background-color: rgb(57, 122, 241);
+    color: white;
+  }
+  
+  .combate{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(238, 238, 238, 0.466);
+  }
+  
   .img-pokemon{
     width: 50%;
+  }
+
+  .InfoCard{
+    display: flex;
+    justify-content: center;
   }
 
   .confronto{
     display: flex;
     justify-content: center;
+    margin-top: 150px;
+
   
   }
   .confronto-img{
@@ -112,39 +218,80 @@ html, body {
   .batalha{
     display: flex;
     justify-content: center;
+    width: 100%;
+    /* height: 72%; */
+    background-image: url(../img/arenapokemon.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .card-selecionado{
     background-color: white;
-    border: 2px solid black;
-    margin-left: 4%;
-    margin-right: 2%;
+    border: 5px groove rgb(255, 255, 255);
+    margin-left: 8% !important;
+    margin-top: 6% !important;
+    margin-bottom: 6% !important;
+    margin: 2%;
     display: inline-block;
+    height: 90%;
+    font-size: 100%;
+    font-family: Georgia;
+    font-style: italic;
+    box-shadow: 5px 10px rgba(255, 255, 255, 0.822);
+  }
+
+  #img-visualizar{
+    display: flex;
+    margin: auto;
+  }
+
+  .item-batalha{
+    width: 4%;
   }
 
   .card-vilao{
-    background-color: white;
-    border: 2px solid black;
-    margin-left: 2%;
-    margin-right: 4%;
+    background-color: rgba(80, 70, 68, 0.966);
+    color: white;
+    border: 5px groove black;
+    margin-top: 8% !important;
+    margin-right: 8% !important;
+    margin-bottom: 2% !important;
+    margin: 2%;
     display: inline-block;
+    height: 90%;
+    font-size: 100%;
+    font-family: Georgia;
+    font-style: italic;
+    box-shadow: 10px 20px rgba(0, 0, 0, 0.822);
       }
+
+  .text-batalha{
+    margin: 10 5 5 20;
+  }
 
 
 #HistoriaBatalha {
+    margin-top: 1px !important;
     margin: auto;
     background-color: white;
     width: 50%;
     height: 20%;
     overflow: auto;
+    overflow-y: auto; /* habilita a rolagem vertical */
+    scroll-behavior: smooth; /* rolagem suave */
 }
 
 .acao-jogador {
+  padding: 5px;
+  list-style-type: none;
   background-color: green;
   color: white; 
 }
 
 .acao-oponente {
+  padding: 5px;
+  list-style-type: none;
   background-color: red;
   color: white;
 }
@@ -152,9 +299,33 @@ html, body {
 
   /* FORMS ADICIONAR */
 
+  .form-adicionar{
+    display: grid;
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   
+  }
+
+  .form-adicionar input{
+    text-align: center;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 1px 1px 2px #333333;
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #cccccc;
+    border: 1px solid #000000;
+  }
+
   form {
+    padding: 10px;
     background-color: white;
     border: 2px solid black;
+    
+  }
+
+  form input{
     text-align: center;
   }
   
@@ -168,26 +339,69 @@ html, body {
     margin: 0.5%;
   }
 
+  /* FORMS PESQUISAR API */
+
+ .form-caixa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%; }
+
+.form-pesquisa {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin: 2%
+}
+
+.inter{
+  display: flex;
+}
+
+.card{
+  float: none;
+}
+
+
+
       /* CARD API */
 
-  .apresentacao-api {
-    margin-left: 2%;
-    
-  }    
-
-  .CardAPI{
-    background-color: green;
-    display:flex;
-    margin: 5%;
-    padding-bottom: 10px;
-    margin-bottom: 40px;
-    height: 100%;
-    justify-content: space-between; /* Distribui os cartões uniformemente ao longo do contêiner */
-    flex-wrap: wrap; /* Permite que os cartões sejam envolvidos para a próxima linha, se necessário */
+  #pokemonInput{
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    box-shadow: 1px 1px 2px #333333;
+    -moz-box-shadow: 1px 1px 2px #333333;
+    -webkit-box-shadow: 1px 1px 2px #333333;
+    background: #cccccc;
+    border: 1px solid #000000;
+    width: 200px;
+    height: 35px;
     
   }
 
+  .apresentacao-api {
+    display: flex;
+  }
+
+.CardAPI {
+    /* margin: 10%; */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px; /* Espaçamento entre os cartões */
+    margin-left: 8%;
+}
+
+.card-api {
+
+    background-color: rgba(255, 255, 255, 0.384);
+    
+}
+
+
   .card-img-top{
+    background-color: #41464b;
+    width: 100%;
     box-shadow: 0px 0px 10px black;
     margin-bottom: 4px;
   }
@@ -195,10 +409,11 @@ html, body {
   .flip-container {
     width: 400px;
     height: 400px;
-    perspective: 1000px;
-    margin: 16px;
-    
+    padding-bottom: 3%;
+    box-sizing: content-box !important; 
   }
+
+  
 
   .flipper{
     width: 70%;
@@ -233,3 +448,30 @@ html, body {
     
   }
   
+  #pokemonEncontrado{
+    display: grid;
+    place-items: center; /* Centraliza horizontal e verticalmente */
+    width: 100%; /* Largura da div externa */
+  }
+
+ 
+
+
+  /* SUGESTÃO POKEMON */
+
+  #suggestionsList{
+    display: none;
+    background-color: white;
+    width: 100%;
+    
+    letter-spacing: 2px;
+    line-height: 25px;
+    flex-wrap: wrap;
+  }
+
+  #suggestionsList li {
+   
+    list-style-type: none;
+    margin-right: 10px; /* Espaçamento entre os itens */
+   
+  }
