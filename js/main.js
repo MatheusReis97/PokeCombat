@@ -204,7 +204,7 @@ function excluirCartao(key) {
               list = listIni.concat(listFim);
           }
           recarregaCartoes(list);
-          console.log(list);
+        
       }
     
   });
@@ -334,10 +334,8 @@ var infoVilao = [
       infoVilao[2] = vilao[vilaoAtual].AtkPrincipal;
       infoVilao[3] = vilao[vilaoAtual].Vida;
       HpVilao = vilao[vilaoAtual].Vida;
-      console.log("Atributos do vilão atualizados:", infoVilao);
-    } else {
-      console.log("Vilão inválido ou não encontrado.");
-    }
+    
+    } 
   }
   
   
@@ -346,7 +344,7 @@ var infoVilao = [
 
 
 function Batalha(event) {
-console.log("Batalha iniciada");
+
   // Verificar se o card selecionado foi armazenado corretamente
   if (Selecionado && Selecionado.length > 0) {
       // Obtendo os atributos do card selecionado diretamente do objeto
@@ -355,9 +353,7 @@ console.log("Batalha iniciada");
       AtqEspecialPokemon = Selecionado[0].AtkPrincipal;
       Hpjogador = Selecionado[0].Vida;
       
-  } else {
-      console.log("Nenhum card selecionado.");
-  }
+  } 
   // Verificar se o card vilão foi armazenado corretamente
   if (vilaoAtual !== null && vilao[vilaoAtual]) {
     // Obtendo os atributos do card vilão diretamente do objeto
@@ -434,7 +430,7 @@ function Atacar(event) {
     var variacao = Math.floor(Math.random()* acao.length);
     var AcaoOponente = acao[variacao];
 // ação usuario (determinado pelo botão)
-console.log(AcaoOponente);
+
 
     if (idBotao === "Ataque" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
@@ -446,7 +442,7 @@ console.log(AcaoOponente);
             Hpjogador -= infoVilao[0];
         }
         if (AcaoOponente == 3) {
-            suaAcao ="Você deu dano de " +AtaquePokemon;
+            suaAcao ="Você deu dano de " + AtaquePokemon;
             Oponente ="Você tomou Ataque Especial de " + infoVilao[2];
           
             HpVilao -= AtaquePokemon;
@@ -455,7 +451,7 @@ console.log(AcaoOponente);
     }
     if (idBotao === "Ataque" && AcaoOponente == 2) {
 
-          suaAcao = "Você deu dano de " +AtaquePokemon;
+          suaAcao = "Você deu dano de " + AtaquePokemon;
           Oponente = "Seu adversario defendeu " + infoVilao[1];
 
               if(AtaquePokemon > infoVilao[1]){
@@ -487,7 +483,7 @@ console.log(AcaoOponente);
     
     if (idBotao === "Defesa" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
-            suaAcao = "Você Defendeu " +DefesaPokemon;
+            suaAcao = "Você Defendeu " + DefesaPokemon;
              Oponente = "Inimigo deu dano de " + infoVilao[0];
 
             if (DefesaPokemon < infoVilao[0]){         
@@ -499,7 +495,7 @@ console.log(AcaoOponente);
       }
         if (AcaoOponente == 3) {
 
-          suaAcao = "Você Defendeu " +DefesaPokemon;
+          suaAcao = "Você Defendeu " + DefesaPokemon;
           Oponente = "Inimigo deu Ataque Especial de " + infoVilao[2];
 
            if (DefesaPokemon < infoVilao[2]){
@@ -537,10 +533,10 @@ console.log(AcaoOponente);
         var variacao = Math.floor(Math.random()* acao.length);
         var AcaoOponente = acao[variacao];
     // ação usuario (determinado pelo botão)
-    console.log(AcaoOponente);
+    
     if (idBotao === "AtaqueEspec" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
-            suaAcao = "Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon;
+            suaAcao = "Você Utilizou Ataque Especial e causou dano" + AtqEspecialPokemon;
             Oponente = "Inimigo deu dano de " + infoVilao[0];
 
             HpVilao -= AtqEspecialPokemon;
@@ -549,7 +545,7 @@ console.log(AcaoOponente);
 
         }
         if (AcaoOponente == 3) {
-          suaAcao = "Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon;
+          suaAcao = "Você Utilizou Ataque Especial e causou dano" + AtqEspecialPokemon;
           Oponente = "Inimigo Utilizou Ataque Especial de " + infoVilao[2];
 
 
@@ -561,8 +557,8 @@ console.log(AcaoOponente);
     }
     if (idBotao === "AtaqueEspec" && AcaoOponente == 2) {
 
-      suaAcao = "Você Utilizou Ataque Especial e causou dano" +AtqEspecialPokemon;
-      Oponente = "Inimigo defendeu " +infoVilao[1];
+      suaAcao = "Você Utilizou Ataque Especial e causou dano" + AtqEspecialPokemon;
+      Oponente = "Inimigo defendeu " + infoVilao[1];
 
       if(AtqEspecialPokemon > infoVilao[1]){
        HpVilao= HpVilao - (AtqEspecialPokemon - infoVilao[1]);
@@ -570,7 +566,7 @@ console.log(AcaoOponente);
       
     }
 
-    console.log(Hpjogador);
+    
     atualizarVidaOponente(HpVilao);
     atualizarVidaJogador(Hpjogador);
     ContinuidadeBatalha (HpVilao , Hpjogador)
@@ -607,7 +603,7 @@ function proximaBatalha(){
   }
       ProximoAdv.addEventListener("click", function() {
       vilaoAtual++;
-      console.log(vilaoAtual);
+      
       Batalha();
       ApresentacaoVilao();
       ContinuidadeBatalha();
