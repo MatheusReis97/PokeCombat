@@ -5,7 +5,7 @@ var list = [
     {"pokemon": "Nidoqueen","tipo":"Veneno","Vida":"600","Ataque":"60","Defesa":"87","AtkPrincipal":"75","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/031.png"},
     {"pokemon": "Poliwhirl","tipo":"Água","Vida":"650","Ataque":"92","Defesa":"65","AtkPrincipal":"50","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/061.png"},
 ];
-
+baseLista();
 var vilao = [
   {"pokemon": "Rattata","tipo":"Normal","Vida":"300","Ataque":"56","Defesa":"35","AtkPrincipal":"25","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png"},
   {"pokemon": "Siri","tipo":"Água","Vida":"300","Ataque":"105","Defesa":"90","AtkPrincipal":"25","imagem":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/098.png"},
@@ -23,6 +23,10 @@ recarregaCartoes(list);
 var Selecionado={};
 
 
+function salvaDadosLocal() {
+  var jsondados = JSON.stringify(list);
+  localStorage.setItem("list", jsondados); 
+}
 
 // Função para inicializar a lista a partir do localStorage, caso exista
 function baseLista() {
@@ -33,13 +37,9 @@ function baseLista() {
     }
   }
   
-  function salvaDadosLocal() {
-    var jsondados = JSON.stringify(list);
-    localStorage.setItem("list", jsondados);  
-    
-  }
 
-  
+
+ 
 baseLista();
   
 
@@ -84,13 +84,14 @@ function adicionarCartao() {
       return;
     }
 
-    list.unshift({"pokemon":nome,"tipo":tipo,"Vida":vida,"Ataque":ataque,"Defesa":defesa,"AtkPrincipal":atqprincipal,"imagem":url});
+    var novocartao = {"pokemon":nome,"tipo":tipo,"Vida":vida,"Ataque":ataque,"Defesa":defesa,"AtkPrincipal":atqprincipal,"imagem":url}
 
+    list.unshift(novocartao);
     salvaDadosLocal(list);
     
     recarregaCartoes(list);
 
-    alert("Pokemon Adicionado!")
+    alert("Pokemon Adicionado!");
 
     limpezaAdicionar();
 }
@@ -509,7 +510,7 @@ function Atacar(event) {
     if (idBotao === "Defesa" && AcaoOponente == 2) {
       
         suaAcao = "Você Defendeu";
-        Oponente = "Inimigo Defendeu"
+        Oponente = "Inimigo Defendeu";
 
 
 
@@ -536,7 +537,7 @@ function Atacar(event) {
     
     if (idBotao === "AtaqueEspec" && (AcaoOponente == 1 || AcaoOponente == 3)) {
         if (AcaoOponente == 1) {
-            suaAcao = "Você Utilizou Ataque Especial e causou dano" + AtqEspecialPokemon;
+            suaAcao = "Você Utilizou Ataque Especial e causou dano " + AtqEspecialPokemon;
             Oponente = "Inimigo deu dano de " + infoVilao[0];
 
             HpVilao -= AtqEspecialPokemon;
@@ -545,7 +546,7 @@ function Atacar(event) {
 
         }
         if (AcaoOponente == 3) {
-          suaAcao = "Você Utilizou Ataque Especial e causou dano" + AtqEspecialPokemon;
+          suaAcao = "Você Utilizou Ataque Especial e causou dano " + AtqEspecialPokemon;
           Oponente = "Inimigo Utilizou Ataque Especial de " + infoVilao[2];
 
 
@@ -557,7 +558,7 @@ function Atacar(event) {
     }
     if (idBotao === "AtaqueEspec" && AcaoOponente == 2) {
 
-      suaAcao = "Você Utilizou Ataque Especial e causou dano" + AtqEspecialPokemon;
+      suaAcao = "Você Utilizou Ataque Especial e causou dano " + AtqEspecialPokemon;
       Oponente = "Inimigo defendeu " + infoVilao[1];
 
       if(AtqEspecialPokemon > infoVilao[1]){
