@@ -9,10 +9,10 @@ html, body {
     background-attachment: fixed;
     background-position: center center;
     min-height: 100vh;
-    min-width: 100vw;
     margin: 0;
     padding: 0;
   }
+
 
   footer{
     text-align: center;
@@ -40,7 +40,7 @@ html, body {
     top: 0;
     width: 100%;
     z-index: 1000;
-
+    box-shadow: 16px 7px 7px black;
   }
   
 

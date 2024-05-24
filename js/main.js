@@ -242,7 +242,8 @@ function SelecionarCartao(key) {
 
   CardSelecionado.innerHTML = content;
 
-
+  document.getElementById("Vsinicio").style.display = "flex";
+  document.getElementById("batalha-inicio").style.display = "inline-block";
   LiberarCombate();
 };
 
