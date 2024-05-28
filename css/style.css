@@ -82,7 +82,7 @@ html, body {
 
   .card-apresentacao{
     text-align: justify;
-    font-size: 18px;
+    font-size: 21px;
     line-height: 25px;
     margin: 0 50px 10px 50px;
     padding: 1%;
@@ -145,7 +145,7 @@ html, body {
   }
   
   .card-container {
-    padding: 4%;
+    padding: 2%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
     text-align: center;
